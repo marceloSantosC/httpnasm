@@ -1,0 +1,42 @@
+%ifndef CONSTANTS_ASM
+%define CONSTANTS_ASM
+
+section .data
+    SOCKET_PORT equ 0x901F 
+    
+    ; RESPONSE STATUS LINE
+    HTTP_VERSION db "HTTP/1.0" 
+    
+    OK_STATUS_LINE db "HTTP/1.0 200 OK", CR, LF
+    OK_STATUS_LINE_len equ $ - OK_STATUS_LINE
+    
+    NOT_FOUND_STATUS_LINE db "HTTP/1.0 404 Not Found", CR, LF
+    NOT_FOUND_STATUS_LINE_len equ $ - NOT_FOUND_STATUS_LINE
+    
+    ; HEADERS
+    SERVER_HEADER db "Server: HTTPNASM/1.0", CR, LF
+    SERVER_HEADER_len equ $ - SERVER_HEADER
+    
+    CONNECTION_HEADER db "Connection: close", CR, LF
+    CONNECTION_HEADER_len equ $ - CONNECTION_HEADER
+    
+    CONTENT_TYPE_HEADER db "Content-Type: text/html", CR, LF
+    CONTENT_TYPE_HEADER_len equ $ - CONTENT_TYPE_HEADER
+    
+    CONTENT_LENGTH_HEADER db "Content-Length: "
+    CONTENT_LENGTH_HEADER_len equ $ - CONTENT_LENGTH_HEADER
+    
+    ZERO_CONTENT_LENGTH_HEADER db "Content-Length: 0"
+    ZERO_CONTENT_LENGTH_HEADER_len equ $ - CONTENT_LENGTH_HEADER
+    
+    ; RESPONSE CONTENT
+    CONTENT_SEPARATOR db CR, LF
+    CONTENT_SEPARATOR_len equ $ - CONTENT_SEPARATOR
+    
+    ; REQUEST CONTENT
+    REQUEST_BUFFER_SIZE equ 2048
+    
+    ; ASCII Codes
+    CR equ 13
+    LF equ 10
+%endif
